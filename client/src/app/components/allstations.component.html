@@ -1,0 +1,62 @@
+<button mat-flat-button color="primary" (click)="goToHome()" style="float: right;">
+  <mat-icon>backspace</mat-icon><small>Back</small>
+</button>
+
+<br><br><br>
+<form class="example-form" [formGroup]="stationForm">
+    <!-- <mat-form-field class="example-full-width" appearance="outline"> -->
+      <mat-form-field class="example-full-width">
+      <!-- <input matInput placeholder="State" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl"> -->
+      <input matInput placeholder="Station" aria-label="Station" [matAutocomplete]="auto1" formControlName="stnCtrl" >
+      <mat-autocomplete #auto1="matAutocomplete">
+        <mat-option *ngFor="let station of filteredStn | async" [value]="station.stn">
+                <span>{{station.stn}}</span>
+                <!-- <small>ID: {{station.id}}</small> -->
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <button mat-flat-button [disabled]="stationForm.invalid" (click)="processStnForm()">
+      <mat-icon class="icon-display" color="primary">send</mat-icon><small></small>
+  </button>
+
+<!-- <button name="reply" type="button" [disabled]="stationForm.invalid" (click)="processStnForm()">Submit</button> -->
+</form>
+<br><br>
+
+
+<mat-accordion>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header class="EWL">
+        <div id="EWL-header" >East-West Line</div>
+      </mat-expansion-panel-header>
+  
+      <p id="single_idx" *ngFor="let i of stationEWL;let j=index" (click)="selectStation(i[2])">{{i[0]}}</p>
+  
+    </mat-expansion-panel>
+  
+    <mat-expansion-panel>
+      <mat-expansion-panel-header class="NSL">
+        <div id="NSL-header">North-South Line</div>
+      </mat-expansion-panel-header>
+  
+      <p id="single_idx" *ngFor="let i of stationNSL;let j=index" (click)="selectStation(i[2])">{{i[0]}}</p>
+  
+    </mat-expansion-panel>
+
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header class="CCL">
+            <div id="CCL-header">Circle Line</div>
+          
+        </mat-expansion-panel-header>
+    
+        <p id="single_idx" *ngFor="let i of stationCCL;let j=index" (click)="selectStation(i[2])">{{i[0]}}</p>
+    
+      </mat-expansion-panel>
+  
+  </mat-accordion>
+
+<br>
+

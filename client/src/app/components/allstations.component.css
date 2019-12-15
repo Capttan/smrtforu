@@ -1,0 +1,72 @@
+/* .mat-expansion-panel-header.mat-expanded,
+.mat-expansion-panel-header.mat-expanded:hover{
+  background: red;
+} */
+
+#EWL-header{
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+}
+
+#NSL-header{
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+}
+
+#CCL-header{
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+}
+
+/* .mat-expansion-panel-header, */
+/* mat-expansion-panel-header{
+    background: blue;
+} */
+
+/* mat-expansion-panel-header {
+    background-color: #e4e1df !important;
+  }
+  
+mat-expansion-panel-header:hover {
+    background-color: #ffcb05 !important;
+  } */
+
+  mat-expansion-panel-header.EWL {
+    background-color: green !important;
+  }
+  
+mat-expansion-panel-header.EWL:hover {
+    background-color: darkcyan !important;
+  }
+
+
+  mat-expansion-panel-header.NSL {
+    background-color: red !important;
+  }
+  
+mat-expansion-panel-header.NSL:hover {
+    background-color: palevioletred !important;
+  }
+
+  mat-expansion-panel-header.CCL {
+    background-color: orange !important;
+  }
+  
+mat-expansion-panel-header.CCL:hover {
+    background-color: sandybrown !important;
+  }
+
+.example-full-width{
+    width: 90%;
+}
+
+#single_idx:hover{
+    background-color: lightgray;
+}
+
+.icon-display {
+  transform: scale(0.8);
+}

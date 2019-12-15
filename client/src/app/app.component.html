@@ -1,0 +1,90 @@
+<mat-toolbar color="primary">
+
+    <div id="button-flex-row" *ngIf="userSvc.login">
+
+        <button mat-flat-button color="primary" (click)="goToHome()">
+            <mat-icon>home</mat-icon><small>Home</small>
+        </button>
+
+        <!-- <button type="button" (click)="goToHome()">Landing Page</button> -->
+
+
+        <button mat-flat-button color="primary" style="float: right;" (click)="goToWallet()">
+            <mat-icon>local_atm</mat-icon><small>Wallet</small>
+        </button>
+
+        <!-- <button type="button" (click)="goToWallet()">Wallet</button> -->
+
+
+
+    </div>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container">
+    <mat-drawer id="mat-drawer" mode="side" opened>
+
+        <div id="button-flex-column" *ngIf="userSvc.login">
+            <br>
+            <!-- <button type="button" (click)="goToAllStn()">All Stations</button><br> -->
+            <button mat-flat-button id="mat_button_col" color="primary" (click)="goToAllStn()">
+                <mat-icon>subway</mat-icon><small>Timings</small>
+            </button>
+            <br><br>
+            <!-- <button type="button" (click)="goToNearest()">Nearest Station</button><br> -->
+            <button mat-flat-button id="mat_button_col" color="primary" (click)="goToNearest()">
+                <mat-icon>my_location</mat-icon><small>Directions</small>
+            </button>
+
+            <br><br>
+            <!-- <button type="button" (click)="goToFare()">Fare</button><br> -->
+            <button mat-flat-button id="mat_button_col" color="primary" (click)="goToFare()">
+                <mat-icon>transfer_within_a_station</mat-icon><small>Fares</small>
+            </button>
+
+
+            <!-- <button type="button" (click)="goToCurStn()">Single Station</button><br> -->
+
+            <!-- <button type="button" (click)="goToStnDir()">Station Directions</button><br> -->
+
+            <br><br>
+            <!-- <button type="button" (click)="goToNews()">News</button> -->
+            <button mat-flat-button id="mat_button_col" color="primary" (click)="goToNews()">
+                <mat-icon>library_books</mat-icon><small>News</small>
+            </button>
+
+            <br><br>
+            <button mat-flat-button id="mat_button_col" color="primary">
+                <mat-icon>settings_application</mat-icon><small>Settings</small>
+            </button>
+
+            <br><br>
+            <button mat-flat-button id="mat_button_col" color="primary" (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon><small>Logout</small>
+            </button>
+
+
+
+            <!-- <button mat-flat-button id="mat_button_col" color="primary">
+                <mat-icon>home</mat-icon><small>Home</small>
+            </button>
+    
+            <button mat-flat-button id="mat_button_col" color="primary">
+                <mat-icon>autorenew</mat-icon><small>Refresh</small>
+            </button>
+    
+    
+            <button mat-flat-button id="mat_button_col" color="primary">
+                <mat-icon>backspace</mat-icon><small>Back</small>
+            </button>
+
+            <button mat-flat-button id="mat_button_col" color="primary">
+                <mat-icon>send</mat-icon><small></small>
+            </button> -->
+
+        </div>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+
+</mat-drawer-container>

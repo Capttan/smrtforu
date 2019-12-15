@@ -1,0 +1,17 @@
+<button mat-flat-button color="primary" (click)="goToHome()" style="float: right;">
+    <mat-icon>backspace</mat-icon><small>Back</small>
+  </button>
+
+<div *ngIf="!!(newsArray)">
+
+<!-- <p *ngFor="let news of newsArray" [innerHTML]="news.info"><br></p> -->
+<!-- <p *ngFor="let news of newsArray">{{news.info}}<br></p> -->
+
+<table class="timetable">
+    <th id="header">News</th>
+    <tr *ngFor="let news of newsArray">
+        <p [innerHTML]="news.info"></p>
+    </tr>
+</table>
+
+</div>

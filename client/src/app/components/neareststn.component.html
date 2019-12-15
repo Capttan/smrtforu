@@ -1,0 +1,51 @@
+<!-- <h1>
+    Google Map Geolocation Demo
+</h1>
+
+
+<div>
+    Note: Once Track me is enabled, refresh page to enable Find me feature!
+</div>
+
+<div>
+    <button [disabled]="isTracking" type="button" (click)="findMe()">Find me</button>
+    <button type="button" (click)="trackMe()">Track me</button>
+</div>
+
+<span>Latitude: {{currentLat}}</span>
+<span>Longitude: {{currentLong}}</span> -->
+
+<div>
+    <button mat-flat-button color="primary" (click)="findNearest()">
+        <mat-icon>autorenew</mat-icon><small>Refresh</small>
+    </button>
+    <button mat-flat-button color="primary" (click)="goToHome()" style="float: right;">
+        <mat-icon>backspace</mat-icon><small>Back</small>
+    </button>
+</div>
+
+
+
+
+<table width=100%>
+    <tr id="header">
+        <td class="dnd" id="header">Distance</td>
+        <td class="dnd" id="header">Duration</td>
+    </tr>
+    <tr>
+        <td class="dnd">{{distStr}} km</td>
+        <td class="dnd">{{durStr}} mins</td>
+    </tr>
+    <tr> &nbsp; </tr>
+    <tr id="header">
+        <td colspan="2" class="dnd" id="header">Map Directions:</td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div *ngIf="!!(imgBuffer)">
+                <img width=100% src="data:image/png;base64,{{imgBuffer}}">
+                <!-- <img src="data:image/png,{{imgBuffer}}"> -->
+            </div>
+        </td>
+    </tr>
+</table>

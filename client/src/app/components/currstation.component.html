@@ -1,0 +1,66 @@
+<button mat-flat-button color="primary" (click)="refreshPage()">
+    <mat-icon>autorenew</mat-icon><small>Refresh</small>
+</button>
+
+<button mat-flat-button color="primary" (click)="goToHome()" style="float: right;">
+    <mat-icon>backspace</mat-icon><small>Back</small>
+</button>
+<body id="dyImg" style="background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;" [style.background-image]="backgroundImage()">
+
+<!-- <style>
+    #dyImg {
+      background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5));
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100%;
+      /* position:absolute; */
+    }
+</style> -->
+
+<!-- <img src="{{picURL}}"> -->
+
+<br><br><br><br><br><br>
+
+<div *ngIf="dataObj.length>0">
+    <!-- <p>Hello world</p> -->
+
+    <!-- <div *ngFor="let i of dataObj">
+        <br>
+        <table border="1" name="timetable">
+            <tr>
+                <td width="400px" id="header">Towards:</td>
+                <td width="400px">{{i[2]}}</td>
+                <td width="400px">{{i[3]}}</td>
+            </tr>
+            <tr>
+                <td width="400px" id="header">Arrives in:</td>
+                <td width="400px">{{i[0]}}</td>
+                <td width="400px">{{i[1]}}</td>
+            </tr>
+        </table>
+        <br>
+    </div> -->
+
+
+    <div *ngFor="let i of dataObj">
+        <br>
+        <table border="1" width=100%>
+            <tr>
+                <td id="header" width=40%>Towards:</td>
+                <td  id="item" width=30%>{{i[2]}}</td>
+                <td  id="item" width=30%>{{i[3]}}</td>
+            </tr>
+            <tr>
+                <td id="header">Arrives in:</td>
+                <td id="item">{{i[0]}}</td>
+                <td id="item">{{i[1]}}</td>
+            </tr>
+        </table>
+        <br>
+    </div>
+</div>
+
+</body>

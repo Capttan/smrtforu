@@ -1,0 +1,41 @@
+mat-drawer-container {
+    position: fixed;
+    height: 100%;
+    min-height: 100%;
+    width: 100%;
+    min-width: 100%;
+ }
+
+ .mat-drawer {
+    width: 20%;
+    min-width: 20%;
+    background-color: #3F51B5;
+    border-style: solid;
+    border-color: black;
+ }
+
+ .mat-drawer-content {
+    border-style: solid;
+    border-color: black;
+ }
+
+
+ .button_div{
+     flex-direction: column;
+ }
+
+ #button_flex_col{
+   display: flex;
+   flex-direction: column;
+}
+
+#mat_button_col{
+   width: 100% !important;
+}
+
+#button_flex_row{
+   display: flex;
+   flex-direction: row;
+}
+
+

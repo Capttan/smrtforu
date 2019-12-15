@@ -1,0 +1,33 @@
+<button mat-flat-button color="primary" (click)="getWallet()">
+    <mat-icon>autorenew</mat-icon><small>Refresh</small>
+</button>
+
+<button mat-flat-button color="primary" (click)="goToHome()" style="float: right;">
+    <mat-icon>backspace</mat-icon><small>Back</small>
+</button>
+
+
+<br><br>
+<div *ngIf="walletValue < 0">
+    <p>Insufficient funds</p>
+</div>
+
+<div *ngIf="walletValue >= 0">
+    <p>Your current funds: ${{walletValue}}</p>
+</div>
+
+<button type="button" (click)="initTopUp()">Top-up</button><br>
+
+<br><br>
+<div *ngIf="topUpFlag">
+    <form [formGroup]="topupForm">
+          <mat-form-field class="example-full-width">
+          <input matInput type="number" placeholder="Top-up Value" aria-label="topupValue" formControlName="topupValue">
+        </mat-form-field>
+    
+        <button mat-flat-button (click)="topUp()">
+          <mat-icon class="icon-display" color="primary">send</mat-icon>
+      </button>
+    </form>
+
+</div>

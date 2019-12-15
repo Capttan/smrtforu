@@ -1,0 +1,73 @@
+<button mat-flat-button color="primary" (click)="goToHome()" style="float: right;">
+  <mat-icon>backspace</mat-icon><small>Back</small>
+</button>
+
+<!-- <form class="example-form" [formGroup]="stationForm"> -->
+<form [formGroup]="stationForm">
+  <mat-form-field class="example-full-width">
+    <!-- <input matInput placeholder="State" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl"> -->
+    <input matInput placeholder="Start station" aria-label="Start" [matAutocomplete]="auto1"
+      formControlName="startCtrl">
+    <mat-autocomplete #auto1="matAutocomplete">
+      <mat-option *ngFor="let station of filteredStart | async" [value]="station.stn">
+        <span>{{station.stn}}</span>
+        <!-- <small>ID: {{station.id}}</small> -->
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="End station" aria-label="End" [matAutocomplete]="auto2" formControlName="endCtrl">
+    <mat-autocomplete #auto2="matAutocomplete">
+      <mat-option *ngFor="let station of filteredEnd | async" [value]="station.stn">
+        <span>{{station.stn}}</span>
+        <!-- <small>ID: {{station.id}}</small> -->
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <br>
+
+  <!-- <mat-slide-toggle
+          [checked]="stateCtrl.disabled"
+          (change)="stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()">
+          Disable Input?
+        </mat-slide-toggle> -->
+
+  <button mat-button name="reply" type="button" [disabled]="stationForm.invalid"
+    (click)="processStnForm()">Submit</button>
+</form>
+
+
+<br><br>
+<div *ngIf="!!(fare)">
+  <table border="1" width=100%>
+    <tr>
+      <td id="header">Standard:</td>
+      <td>{{fare.standard}}</td>
+    </tr>
+    <tr>
+      <td id="header">Adult:</td>
+      <td>{{fare.adult}}</td>
+    </tr>
+    <tr>
+      <td id="header">Senior:</td>
+      <td>{{fare.senior}}</td>
+    </tr>
+    <tr>
+      <td id="header">Student:</td>
+      <td>{{fare.student}}</td>
+    </tr>
+    <tr>
+      <td id="header">WTCS:</td>
+      <td>{{fare.WTCS}}</td>
+    </tr>
+    <tr>
+      <td id="header">Estimated Time:</td>
+      <td>{{fare.estTime}} mins</td>
+    </tr>
+  </table>
+</div>
+
