@@ -20,22 +20,6 @@ mongoclient.connect((err) => {
   }
 });
 
-const contentNego = (req, resp, next) => {
-
-  // console.log('contentNego');
-  resp.format({
-    'application/json': ()=>{
-      next();
-    },
-    'default': ()=>{
-      resp.status(406).send("Not acceptable");
-      return;
-    }
-  });
-
-}
-
-
 
 
 app.use(morgan('tiny'));

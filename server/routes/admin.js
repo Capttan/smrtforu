@@ -26,6 +26,20 @@ const endptAccess = (req, resp, next) => {
     next();
   }
 
+  const contentNego = (req, resp, next) => {
+
+    // console.log('contentNego');
+    resp.format({
+      'application/json': ()=>{
+        return next();
+      },
+      'default': ()=>{
+        resp.status(406).send("Not acceptable");
+        return;
+      }
+    });
+  
+  }
   
 
 module.exports = function (app, pool, mongoclient) {
@@ -161,17 +175,31 @@ module.exports = function (app, pool, mongoclient) {
     
     })
 
-    app.get('/getsubs',(req,resp)=>{
+    app.get('/getsubs',contentNego,(req,resp)=>{
         console.log(fakeDatabase);
 
         // resp.json({database: fakeDatabase});
         resp.json({database: fakeDatabase});
     })
 
-    app.post('/clearsubs',(req, resp)=>{
+    app.post('/clearsubs',contentNego,(req, resp)=>{
         fakeDatabase = [];
         console.log(fakeDatabase);
         resp.json({message: 'database cleared'});
     })
+
+    app.get('/getsub/:id',contentNego,(req, resp)=>{
+
+        sub_id = req.params.id;
+        console.log(sub_id);
+
+        for(let i=0;i<fakeDatabase.length;i++){
+            if(sub_id === fakeDatabase[i].keys.auth){
+                resp.status(200).json({message: 'Authenticated'});
+                return;
+            }
+        }
+        resp.status(404).json({message: "Not found"});
+    });
 
 }
